@@ -1,0 +1,152 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Probably Stolen Mods documentation\n"
+"Report-Msgid-Bugs-To: https://github.com/KCN-judu/ProbablyStolen-Mods/issues\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: conf.json:summary
+msgid "Calls to Wild and your other contacts go straight to the choices."
+msgstr ""
+
+#: manual/building.md:1
+msgid "Building"
+msgstr ""
+
+#: manual/building.md:4
+msgid "Requirements"
+msgstr ""
+
+#: manual/building.md:6
+msgid "*Probably Stolen*, game version 0.46D. The build compiles against the game's own assemblies in `Probably Stolen_Data/Managed`."
+msgstr ""
+
+#: manual/building.md:7
+msgid "Git Bash or another POSIX shell on Windows."
+msgstr ""
+
+#: manual/building.md:8
+msgid "Nothing else: the C# 5 compiler that ships with Windows (.NET Framework 4) is enough."
+msgstr ""
+
+#: manual/building.md:10
+msgid "Build"
+msgstr ""
+
+#: manual/building.md:17
+msgid "Two environment variables override the defaults:"
+msgstr ""
+
+#: manual/building.md:19
+msgid "Variable"
+msgstr ""
+
+#: manual/building.md:19
+msgid "Default"
+msgstr ""
+
+#: manual/building.md:24
+msgid "Install by hand"
+msgstr ""
+
+#: manual/building.md:26
+msgid "Copy the folder `out/quick_call` into the game's `Mods` folder, start the game, and enable the mod in the Mods menu. Mods load when the game starts, so restart after enabling or updating one."
+msgstr ""
+
+#: manual/building.md:28
+msgid "The mod declares no capabilities, so the game enables it without a permission prompt."
+msgstr ""
+
+#: manual/how-it-works.md:1
+msgid "How it works"
+msgstr ""
+
+#: manual/how-it-works.md:3
+msgid "The game already builds a greeting-free dialog for its phone-book quick dial. Quick Call uses that dialog for every call and removes the timers around it."
+msgstr ""
+
+#: manual/how-it-works.md:5
+msgid "Dialing"
+msgstr ""
+
+#: manual/how-it-works.md:7
+msgid "`PhoneUIManager.PressNumber` waits 2.25 s after each digit for more digits. Once the typed digits form a whole contact number that will answer, and no longer number starts with them, the mod places the call right away, the way the phone book's quick dial does."
+msgstr ""
+
+#: manual/how-it-works.md:9
+msgid "Ringing and pickup"
+msgstr ""
+
+#: manual/how-it-works.md:11
+msgid "`StartCalling` rolls 1 to 5 s of ringing and `StartPhoneDialogSequence` waits 1.5 s for the pickup. The mod sets both timers to almost nothing. Numbers that don't answer still go through the normal flow, so \"no answer\" appears at once."
+msgstr ""
+
+#: manual/how-it-works.md:13
+msgid "Greeting lines"
+msgstr ""
+
+#: manual/how-it-works.md:15
+msgid "Each contact's dialog builder checks `isQuickDialCall` and, when it is set, returns the line with the choices instead of the greeting. For Wild that is `wild2` instead of `wild1` followed by `wild2`. The mod sets the flag around every call. Intro, cooldown and story dialogs have no quick variant, so they play in full."
+msgstr ""
+
+#: manual/how-it-works.md:17
+msgid "Choices"
+msgstr ""
+
+#: manual/how-it-works.md:19
+msgid "The first line is shown whole instead of typed out, and the choices appear as soon as it is shown, instead of 0.85 s later."
+msgstr ""
+
+#: manual/how-it-works.md:21
+msgid "The mod patches only `PhoneUIManager` and `DialoguePhoneUIManager`."
+msgstr ""
+
+#: manual/index.md:1
+msgid "Quick Call"
+msgstr ""
+
+#: manual/index.md:3
+msgid "Calling Wild or your suppliers? This mod skips the wait and gets straight to business: calls open on their choices."
+msgstr ""
+
+#: manual/index.md:5
+msgid "![Quick Call cover](../attachments/cover.png)"
+msgstr ""
+
+#: manual/index.md:7
+msgid "What it removes"
+msgstr ""
+
+#: manual/index.md:9
+msgid "The 2.25 s wait after the last digit. A contact's number dials as soon as you finish typing it."
+msgstr ""
+
+#: manual/index.md:10
+msgid "The 1 to 5 s of ringing and the 1.5 s pickup pause. A number that doesn't answer says so at once."
+msgstr ""
+
+#: manual/index.md:11
+msgid "The greeting lines. Every call opens on the line with the choices."
+msgstr ""
+
+#: manual/index.md:12
+msgid "The pause before the choices appear. The first line shows in full and the choices appear with it."
+msgstr ""
+
+#: manual/index.md:14
+msgid "What stays"
+msgstr ""
+
+#: manual/index.md:16
+msgid "Intro calls, cooldown replies and story calls play in full."
+msgstr ""
+
+#: manual/index.md:17
+msgid "Everything after you pick a choice works as before."
+msgstr ""
+
+#: manual/index.md:18
+msgid "The phone book's quick dial works as before, now without the pause before the choices."
+msgstr ""

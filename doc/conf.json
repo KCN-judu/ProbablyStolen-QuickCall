@@ -1,0 +1,12 @@
+{
+  "title": "Quick Call",
+  "summary": "Calls to Wild and your other contacts go straight to the choices.",
+  "locales": [
+    "zh_CN"
+  ],
+  "order": [
+    "index.md",
+    "how-it-works.md",
+    "building.md"
+  ]
+}

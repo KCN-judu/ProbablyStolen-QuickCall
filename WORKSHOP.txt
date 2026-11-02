@@ -1,0 +1,18 @@
+[h1]Quick Call[/h1]
+Calling Wild or your suppliers? Skip the wait and get straight to business.
+
+[h2]What it removes[/h2]
+[list]
+[*]The 2.25 s wait after the last digit: a contact's number dials as soon as you finish typing it.
+[*]The 1-5 s of ringing and the pickup pause.
+[*]The greeting lines: every call opens on the line with the choices, using the game's own quick-dial dialog.
+[*]The pause before the choices appear.
+[/list]
+
+[h2]What stays[/h2]
+[list]
+[*]Intro calls, cooldown replies and story calls play in full.
+[*]Everything after you pick a choice works as before.
+[/list]
+
+Needs no special permissions. Built for game version 0.46D.

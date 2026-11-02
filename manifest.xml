@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Manifest>
+  <ID>quick_call</ID>
+  <Name>Quick Call</Name>
+  <Author>KCN-judu</Author>
+  <ModVersion>1.0.0</ModVersion>
+  <Description>Calls to Wild and your other contacts go straight to the choices: no wait after the last digit, no ringing, no pickup pause and no greeting lines. Intro and story calls still play in full.</Description>
+  <GameVersions>
+    <Version>0.46D</Version>
+  </GameVersions>
+  <Prerequisites />
+  <Assemblies>
+    <Assembly>QuickCall.dll</Assembly>
+  </Assemblies>
+  <Capabilities />
+</Manifest>

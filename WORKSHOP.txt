@@ -24,3 +24,32 @@ Needs no special permissions. Built for game version 0.46D.
 [*][url=https://github.com/KCN-judu/ProbablyStolen-Mods]All mods by KCN-judu[/url]
 [/list]
 Bug reports and suggestions are welcome on GitHub or in the comments.
+
+[hr][/hr]
+
+[h1]快速通话[/h1]
+给 Wild 或供货商打电话？跳过等待，直接谈正事。
+
+[h2]去掉了什么[/h2]
+[list]
+[*]输完最后一位数字后的 2.25 秒等待：联系人号码一输完就立即拨出。
+[*]1 到 5 秒的响铃和接通前的停顿。
+[*]寒暄台词：每次通话都直接从带选项的那句开始，用的是游戏自带的快速拨号对话。
+[*]选项出现前的停顿。
+[/list]
+
+[h2]保留了什么[/h2]
+[list]
+[*]初次介绍、冷却期回复和剧情电话照常完整播放。
+[*]选完选项之后的一切都和原来一样。
+[/list]
+
+不需要任何特殊权限。适用于游戏版本 0.46D。
+
+[h2]源码与文档[/h2]
+[list]
+[*][url=https://kcn-judu.github.io/ProbablyStolen-Mods/zh-cn/quick-call/]中文文档[/url]
+[*][url=https://github.com/KCN-judu/ProbablyStolen-QuickCall]GitHub 源码[/url]，Apache License 2.0
+[*][url=https://github.com/KCN-judu/ProbablyStolen-Mods]KCN-judu 的全部模组[/url]
+[/list]
+欢迎在 GitHub 或评论区反馈问题和建议。

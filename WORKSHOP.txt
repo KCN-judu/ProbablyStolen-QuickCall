@@ -16,3 +16,11 @@ Calling Wild or your suppliers? Skip the wait and get straight to business.
 [/list]
 
 Needs no special permissions. Built for game version 0.46D.
+
+[h2]Source and documentation[/h2]
+[list]
+[*][url=https://kcn-judu.github.io/ProbablyStolen-Mods/en/quick-call/]Documentation[/url] (English and Chinese)
+[*][url=https://github.com/KCN-judu/ProbablyStolen-QuickCall]Source code on GitHub[/url], Apache License 2.0
+[*][url=https://github.com/KCN-judu/ProbablyStolen-Mods]All mods by KCN-judu[/url]
+[/list]
+Bug reports and suggestions are welcome on GitHub or in the comments.

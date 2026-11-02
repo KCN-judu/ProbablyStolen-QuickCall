@@ -103,6 +103,18 @@ msgstr "第一句话直接整句显示，而不是逐字打出，选项在它显
 msgid "The mod patches only `PhoneUIManager` and `DialoguePhoneUIManager`."
 msgstr "模组只修改 `PhoneUIManager` 和 `DialoguePhoneUIManager`。"
 
+#: manual/how-it-works.md:23
+msgid "Tested logic"
+msgstr "经过测试的逻辑"
+
+#: manual/how-it-works.md:25
+msgid "The rule for dialling at once lives in `src/Dial.Pure.cs`, apart from the code that reads the game: call when the digits form a whole number that will answer and no other contact's number starts with them. `tests/DialTest.cs` checks it outside the game with nothing but the C# compiler, and prints ok or FAIL per case."
+msgstr "立即拨号的规则放在 `src/Dial.Pure.cs` 中，和读取游戏的代码分开：当输入的数字组成一个会接听的完整号码，并且没有其他联系人的号码以它开头时就拨出。`tests/DialTest.cs` 只用 C# 编译器就能在游戏外检查它，每个用例输出 ok 或 FAIL。"
+
+#: manual/how-it-works.md:27
+msgid "Starting is all or nothing: if a method the mod hooks is missing, for example after a game update, everything already set up is taken down again, one line is written to `Player.log` and the mod stays off."
+msgstr "启动是全有或全无的：如果模组挂接的某个方法不存在（比如游戏更新后），已经装好的一切都会撤下，`Player.log` 里写入一行，模组保持关闭。"
+
 #: manual/index.md:1
 msgid "Quick Call"
 msgstr "快速通话"

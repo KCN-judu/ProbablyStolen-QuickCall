@@ -19,3 +19,9 @@ Each contact's dialog builder checks `isQuickDialCall` and, when it is set, retu
 The first line is shown whole instead of typed out, and the choices appear as soon as it is shown, instead of 0.85 s later.
 
 The mod patches only `PhoneUIManager` and `DialoguePhoneUIManager`.
+
+## Tested logic
+
+The rule for dialling at once lives in `src/Dial.Pure.cs`, apart from the code that reads the game: call when the digits form a whole number that will answer and no other contact's number starts with them. `tests/DialTest.cs` checks it outside the game with nothing but the C# compiler, and prints ok or FAIL per case.
+
+Starting is all or nothing: if a method the mod hooks is missing, for example after a game update, everything already set up is taken down again, one line is written to `Player.log` and the mod stays off.

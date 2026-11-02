@@ -3,7 +3,7 @@
   <ID>quick_call</ID>
   <Name>Quick Call</Name>
   <Author>KCN-judu</Author>
-  <ModVersion>1.0.0</ModVersion>
+  <ModVersion>1.0.1</ModVersion>
   <Description>Calls to Wild and your other contacts go straight to the choices: no wait after the last digit, no ringing, no pickup pause and no greeting lines. Intro and story calls still play in full.</Description>
   <GameVersions>
     <Version>0.46D</Version>

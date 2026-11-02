@@ -24,39 +24,71 @@ namespace QuickCall
 
         public void Init(ModManifest manifest) { }
 
+        // Enabling is all or nothing: if a patch target is missing (after a game update, say) or any step fails,
+        // everything already installed is taken down again, one line goes to Player.log and the mod stays off.
         public void OnEnable()
         {
             if (harmony != null) return;
+            try { Install(); }
+            catch (Exception e)
+            {
+                TearDown();
+                UnityEngine.Debug.LogWarning("[QuickCall] could not start, left off: " + e.Message);
+            }
+        }
+
+        public void OnDisable()
+        {
+            TearDown();
+        }
+
+        static void Install()
+        {
             setQuickDial = typeof(PhoneUIManager).GetMethod("set_isQuickDialCall", AnyInstance);
             isAnyBubbleTyping = typeof(DialoguePhoneUIManager).GetMethod("IsAnyBubbleTyping", AnyInstance);
             skipTypewriters = typeof(DialoguePhoneUIManager).GetMethod("SkipTypewriters", AnyInstance);
 
             // Types are named at each call: the game's mod scanner asks for a permission when reflection
             // goes through a Type it cannot see.
-            harmony = new Harmony(HarmonyId);
-            harmony.Patch(typeof(PhoneUIManager).GetMethod("PressNumber", AnyInstance),
+            var h = new Harmony(HarmonyId);
+            harmony = h;
+            Patch(h, typeof(PhoneUIManager).GetMethod("PressNumber", AnyInstance), "PhoneUIManager.PressNumber",
                 Hook("PressNumberPrefix"), Hook("PressNumberPostfix"));
-            harmony.Patch(typeof(PhoneUIManager).GetMethod("StartCalling", AnyInstance),
+            Patch(h, typeof(PhoneUIManager).GetMethod("StartCalling", AnyInstance), "PhoneUIManager.StartCalling",
                 null, Hook("StartCallingPostfix"));
-            harmony.Patch(typeof(PhoneUIManager).GetMethod("StartPhoneDialogSequence", AnyInstance),
+            Patch(h, typeof(PhoneUIManager).GetMethod("StartPhoneDialogSequence", AnyInstance), "PhoneUIManager.StartPhoneDialogSequence",
                 null, Hook("StartPhoneDialogSequencePostfix"));
-            harmony.Patch(typeof(PhoneUIManager).GetMethod("StartPhoneDialog", AnyInstance),
+            Patch(h, typeof(PhoneUIManager).GetMethod("StartPhoneDialog", AnyInstance), "PhoneUIManager.StartPhoneDialog",
                 Hook("StartPhoneDialogPrefix"), Hook("StartPhoneDialogPostfix"));
-            harmony.Patch(typeof(DialoguePhoneUIManager).GetMethod("OnCurrentTextDisplayed", AnyInstance),
-                Hook("OnCurrentTextDisplayedPrefix"));
-            harmony.Patch(typeof(DialoguePhoneUIManager).GetMethod("InterruptDialog", AnyInstance),
+            Patch(h, typeof(DialoguePhoneUIManager).GetMethod("OnCurrentTextDisplayed", AnyInstance), "DialoguePhoneUIManager.OnCurrentTextDisplayed",
+                Hook("OnCurrentTextDisplayedPrefix"), null);
+            Patch(h, typeof(DialoguePhoneUIManager).GetMethod("InterruptDialog", AnyInstance), "DialoguePhoneUIManager.InterruptDialog",
                 null, Hook("InterruptDialogPostfix"));
         }
 
-        public void OnDisable()
+        static void Patch(Harmony h, MethodInfo target, string name, HarmonyMethod prefix, HarmonyMethod postfix)
         {
-            if (harmony != null) { harmony.UnpatchAll(HarmonyId); harmony = null; }
+            if (target == null) throw new MissingMethodException(name + " not found");
+            h.Patch(target, prefix, postfix);
+        }
+
+        // Takes down everything the mod installed; safe to call at any point, also mid-install.
+        static void TearDown()
+        {
+            if (harmony != null)
+            {
+                try { harmony.UnpatchAll(HarmonyId); }
+                catch (Exception e) { UnityEngine.Debug.LogWarning("[QuickCall] unpatching failed: " + e.Message); }
+                harmony = null;
+            }
             openingLine = false;
         }
 
         static HarmonyMethod Hook(string name)
         {
-            return new HarmonyMethod(typeof(QuickCallMod).GetMethod(name, AnyStatic));
+            var m = typeof(QuickCallMod).GetMethod(name, AnyStatic);
+            if (m == null) throw new MissingMethodException("QuickCallMod." + name + " not found");
+            return new HarmonyMethod(m);
         }
 
         // Typed digits: as soon as they form a whole contact number that answers, call it the way the
@@ -69,18 +101,10 @@ namespace QuickCall
         static void PressNumberPostfix(PhoneUIManager __instance, bool __state, long ___currentNumber)
         {
             if (!__state || ___currentNumber <= 0) return;
-            if (!PhoneUIManager.WillAnswerCall(___currentNumber) || IsPrefixOfOtherNumber(___currentNumber)) return;
-            __instance.AutoCall(___currentNumber);
-        }
-
-        static bool IsPrefixOfOtherNumber(long number)
-        {
             var store = PlayerStore.Instance;
-            if (store == null || store.PhoneClientDict == null) return false;
-            string digits = number.ToString();
-            foreach (long other in store.PhoneClientDict.Keys)
-                if (other != number && other.ToString().StartsWith(digits, StringComparison.Ordinal)) return true;
-            return false;
+            var contacts = store != null && store.PhoneClientDict != null ? store.PhoneClientDict.Keys : null;
+            if (!Dial.ShouldDialNow(___currentNumber, PhoneUIManager.WillAnswerCall(___currentNumber), contacts)) return;
+            __instance.AutoCall(___currentNumber);
         }
 
         // Numbers that do not answer (or are typed in full only after a pause) still go through the

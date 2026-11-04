@@ -9,7 +9,7 @@ msgstr ""
 
 #: conf.json:summary
 msgid "Calls to Wild and your other contacts go straight to the choices."
-msgstr "给 Wild 和其他联系人打电话时直接进入对话选项。"
+msgstr "给王尔德和其他联系人打电话时，直接进入对话选项。"
 
 #: manual/building.md:1
 msgid "Building"
@@ -17,19 +17,19 @@ msgstr "构建"
 
 #: manual/building.md:4
 msgid "Requirements"
-msgstr "需求"
+msgstr "构建要求"
 
 #: manual/building.md:6
 msgid "*Probably Stolen*, game version 0.46D. The build compiles against the game's own assemblies in `Probably Stolen_Data/Managed`."
-msgstr "《深空当铺：可能是偷的》（*Probably Stolen*）游戏版本 0.46D。构建时会引用 `Probably Stolen_Data/Managed` 中的游戏程序集。"
+msgstr "《深空当铺：可能是偷的》（*Probably Stolen*），游戏版本 0.46D。构建时会引用 `Probably Stolen_Data/Managed` 里游戏自带的程序集。"
 
 #: manual/building.md:7
 msgid "Git Bash or another POSIX shell on Windows."
 msgstr "Windows 上的 Git Bash 或其他 POSIX shell。"
 
 #: manual/building.md:8
-msgid "Nothing else: the C# 5 compiler that ships with Windows (.NET Framework 4) is enough."
-msgstr "不需要其他东西：Windows 自带的 C# 5 编译器（.NET Framework 4）就够了。"
+msgid "No other tools: the C# 5 compiler that ships with Windows (.NET Framework 4) builds the mod."
+msgstr "不需要别的工具：Windows 自带的 C# 5 编译器（.NET Framework 4）就能构建。"
 
 #: manual/building.md:10
 msgid "Build"
@@ -37,7 +37,7 @@ msgstr "构建"
 
 #: manual/building.md:17
 msgid "Two environment variables override the defaults:"
-msgstr "可以用两个环境变量覆盖默认值："
+msgstr "可以用两个环境变量改掉默认值："
 
 #: manual/building.md:19
 msgid "Variable"
@@ -53,75 +53,75 @@ msgstr "手动安装"
 
 #: manual/building.md:26
 msgid "Copy the folder `out/quick_call` into the game's `Mods` folder, start the game, and enable the mod in the Mods menu. Mods load when the game starts, so restart after enabling or updating one."
-msgstr "把 `out/quick_call` 文件夹复制到游戏的 `Mods` 文件夹，启动游戏，在模组菜单中启用它。模组在游戏启动时加载，所以启用或更新后要重启游戏。"
+msgstr "把 `out/quick_call` 文件夹复制到游戏的 `Mods` 文件夹，启动游戏，再在模组菜单里启用。模组在游戏启动时加载，所以启用或更新之后要重启游戏。"
 
 #: manual/building.md:28
 msgid "The mod declares no capabilities, so the game enables it without a permission prompt."
-msgstr "这个模组不声明任何权限，游戏启用它时不会弹出权限确认。"
+msgstr "这个模组不需要任何权限，游戏启用它时不会弹出权限确认。"
 
 #: manual/how-it-works.md:1
 msgid "How it works"
-msgstr "实现原理"
+msgstr "工作原理"
 
 #: manual/how-it-works.md:3
-msgid "The game already builds a greeting-free dialog for its phone-book quick dial. Quick Call uses that dialog for every call and removes the timers around it."
-msgstr "游戏本来就为电话簿的快速拨号准备了一套没有开场白的对话。快速通话让每次通话都使用这套对话，并去掉前后的计时等待。"
+msgid "The game builds a dialog without greeting lines for the phone book's quick dial. Quick Call uses that dialog for every call and sets the waits around it to almost zero."
+msgstr "游戏给电话簿的快捷拨号准备了一套没有开场白的对话。快速通话让每通电话都用这套对话，并把前后的等待压到几乎为零。"
 
 #: manual/how-it-works.md:5
 msgid "Dialing"
 msgstr "拨号"
 
 #: manual/how-it-works.md:7
-msgid "`PhoneUIManager.PressNumber` waits 2.25 s after each digit for more digits. Once the typed digits form a whole contact number that will answer, and no longer number starts with them, the mod places the call right away, the way the phone book's quick dial does."
-msgstr "`PhoneUIManager.PressNumber` 在每输入一位数字后等待 2.25 秒，看是否还有下一位。一旦已输入的数字组成一个会接听的完整联系人号码，并且没有更长的号码以它开头，模组就立即拨出，和电话簿的快速拨号一样。"
+msgid "`PhoneUIManager.PressNumber` waits 2.25 s after each digit for more digits. The mod places the call right away, as the phone book's quick dial does, when the typed digits form a whole contact number that will answer and no longer number starts with them."
+msgstr "`PhoneUIManager.PressNumber` 每输入一位数字，就等 2.25 秒看有没有下一位。已输入的数字凑成一个会接听的完整联系人号码、而且没有更长的号码以它们开头时，模组立刻拨出，和电话簿的快捷拨号一样。"
 
 #: manual/how-it-works.md:9
 msgid "Ringing and pickup"
-msgstr "拨号音与接听"
+msgstr "响铃与接听"
 
 #: manual/how-it-works.md:11
-msgid "`StartCalling` rolls 1 to 5 s of ringing and `StartPhoneDialogSequence` waits 1.5 s for the pickup. The mod sets both timers to almost nothing. Numbers that don't answer still go through the normal flow, so \"no answer\" appears at once."
-msgstr "`StartCalling` 随机响铃 1 到 5 秒，`StartPhoneDialogSequence` 等待 1.5 秒接听。模组把这两个计时都缩到几乎为零。不会接听的号码仍走正常流程，所以“无人接听”会立刻显示。"
+msgid "`StartCalling` rolls 1 to 5 s of ringing and `StartPhoneDialogSequence` waits 1.5 s for the pickup. The mod sets both timers to almost zero. Numbers that don't answer still go through the normal flow, so \"No Answer\" appears at once."
+msgstr "`StartCalling` 随机决定 1 到 5 秒的响铃，`StartPhoneDialogSequence` 要等 1.5 秒才接通。模组把这两个计时都改成几乎为零。不会接听的号码照常走原来的流程，所以“无响应”立刻出现。"
 
 #: manual/how-it-works.md:13
 msgid "Greeting lines"
 msgstr "开场白"
 
 #: manual/how-it-works.md:15
-msgid "Each contact's dialog builder checks `isQuickDialCall` and, when it is set, returns the line with the choices instead of the greeting. For Wild that is `wild2` instead of `wild1` followed by `wild2`. The mod sets the flag around every call. Intro, cooldown and story dialogs have no quick variant, so they play in full."
-msgstr "每个联系人的对话生成函数都会检查 `isQuickDialCall`，设置了它就直接返回带选项的那句，而不是开场白。对 Wild 来说，就是直接从 `wild2` 开始，而不是先说 `wild1` 再说 `wild2`。模组在每次通话前后设置这个标记。初次介绍、冷却回复和剧情对话没有快速版本，所以仍完整播放。"
+msgid "Each contact's dialog builder checks `isQuickDialCall`. When it is set, the builder returns the line with the choices instead of the greeting. For Wild that is `wild2` instead of `wild1` followed by `wild2`. The mod sets the flag while each call's dialog is built. Intro, cooldown and story dialogs have no quick variant, so they play in full."
+msgstr "每个联系人的对话生成函数都会检查 `isQuickDialCall`。设置了它，就返回带选项的那句，不返回开场白。对王尔德来说，就是只播 `wild2`，不再先播 `wild1`。模组在生成每通电话的对话时设置这个标记。初次介绍、冷却回复和剧情对话没有快速版本，所以照常完整播放。"
 
 #: manual/how-it-works.md:17
 msgid "Choices"
 msgstr "选项"
 
 #: manual/how-it-works.md:19
-msgid "The first line is shown whole instead of typed out, and the choices appear as soon as it is shown, instead of 0.85 s later."
-msgstr "第一句话直接整句显示，而不是逐字打出，选项在它显示后立即出现，而不是 0.85 秒后。"
+msgid "The mod shows the first line whole instead of typing it out, and shows the choices with it instead of 0.85 s later."
+msgstr "模组让第一句话整句显示，不再逐字打出，选项也随之出现，不用再等 0.85 秒。"
 
 #: manual/how-it-works.md:21
 msgid "The mod patches only `PhoneUIManager` and `DialoguePhoneUIManager`."
-msgstr "模组只修改 `PhoneUIManager` 和 `DialoguePhoneUIManager`。"
+msgstr "模组只给 `PhoneUIManager` 和 `DialoguePhoneUIManager` 打补丁。"
 
 #: manual/how-it-works.md:23
 msgid "Tested logic"
-msgstr "经过测试的逻辑"
+msgstr "带测试的逻辑"
 
 #: manual/how-it-works.md:25
-msgid "The rule for dialling at once lives in `src/Dial.Pure.cs`, apart from the code that reads the game: call when the digits form a whole number that will answer and no other contact's number starts with them. `tests/DialTest.cs` checks it outside the game with nothing but the C# compiler, and prints ok or FAIL per case."
-msgstr "立即拨号的规则放在 `src/Dial.Pure.cs` 中，和读取游戏的代码分开：当输入的数字组成一个会接听的完整号码，并且没有其他联系人的号码以它开头时就拨出。`tests/DialTest.cs` 只用 C# 编译器就能在游戏外检查它，每个用例输出 ok 或 FAIL。"
+msgid "The rule for dialing at once lives in `src/Dial.Pure.cs`, apart from the code that reads the game: call when the digits form a whole number that will answer and no other contact's number starts with them. `tests/DialTest.cs` checks it outside the game with nothing but the C# compiler, and prints ok or FAIL for each case."
+msgstr "立即拨号的规则放在 `src/Dial.Pure.cs`，和读取游戏的代码分开：输入的数字组成一个会接听的完整号码，且没有别的联系人号码以它们开头时，就拨出。`tests/DialTest.cs` 只要有 C# 编译器就能在游戏外检查这条规则，每个用例输出 ok 或 FAIL。"
 
 #: manual/how-it-works.md:27
-msgid "Starting is all or nothing: if a method the mod hooks is missing, for example after a game update, everything already set up is taken down again, one line is written to `Player.log` and the mod stays off."
-msgstr "启动是全有或全无的：如果模组挂接的某个方法不存在（比如游戏更新后），已经装好的一切都会撤下，`Player.log` 里写入一行，模组保持关闭。"
+msgid "Starting is all or nothing. If a method the mod hooks is missing, for example after a game update, the mod removes everything it had already set up, writes one line to `Player.log` and stays off."
+msgstr "启动要么全部成功，要么什么都不做。模组挂接的某个方法不存在时（比如游戏更新之后），它会撤下已经装好的所有补丁，往 `Player.log` 写一行，然后保持关闭。"
 
 #: manual/index.md:1
 msgid "Quick Call"
 msgstr "快速通话"
 
 #: manual/index.md:3
-msgid "Calling Wild or your suppliers? This mod skips the wait and gets straight to business: calls open on their choices."
-msgstr "要给 Wild 或供货商打电话？这个模组省掉等待，直奔正题：电话一接通就是对话选项。"
+msgid "Quick Call makes every call to Wild, a supplier or another contact open on its choices. It removes the waits before and after the call and the greeting lines."
+msgstr "快速通话让每通打给王尔德、供货商或其他联系人的电话都直接从选项开始：通话前后的等待和开场白都去掉了。"
 
 #: manual/index.md:5
 msgid "![Quick Call cover](../attachments/cover.png)"
@@ -132,16 +132,16 @@ msgid "What it removes"
 msgstr "去掉了什么"
 
 #: manual/index.md:9
-msgid "The 2.25 s wait after the last digit. A contact's number dials as soon as you finish typing it."
-msgstr "输完最后一位后的 2.25 秒等待。联系人号码一输完就立即拨出。"
+msgid "The 2.25 s wait after the last digit. A contact's number dials as soon as it is complete and no other contact's number starts with the same digits."
+msgstr "输完最后一位后的 2.25 秒等待。号码输完整、且没有别的联系人号码以这几位开头时，立即拨出。"
 
 #: manual/index.md:10
-msgid "The 1 to 5 s of ringing and the 1.5 s pickup pause. A number that doesn't answer says so at once."
-msgstr "1 到 5 秒的拨号音和 1.5 秒的接听停顿。不会接听的号码会立刻提示。"
+msgid "The 1 to 5 s of ringing and the 1.5 s pickup pause. A number that doesn't answer shows \"No Answer\" at once."
+msgstr "1 到 5 秒的响铃和 1.5 秒的接通停顿。不会接听的号码立刻显示“无响应”。"
 
 #: manual/index.md:11
 msgid "The greeting lines. Every call opens on the line with the choices."
-msgstr "开场白。每次通话都从带选项的那句开始。"
+msgstr "开场白。每通电话都从带选项的那句开始。"
 
 #: manual/index.md:12
 msgid "The pause before the choices appear. The first line shows in full and the choices appear with it."
@@ -153,12 +153,12 @@ msgstr "保留了什么"
 
 #: manual/index.md:16
 msgid "Intro calls, cooldown replies and story calls play in full."
-msgstr "初次介绍、冷却回复和剧情电话仍完整播放。"
+msgstr "初次介绍、冷却回复和剧情电话照常完整播放。"
 
 #: manual/index.md:17
 msgid "Everything after you pick a choice works as before."
 msgstr "选完选项之后的一切照旧。"
 
 #: manual/index.md:18
-msgid "The phone book's quick dial works as before, now without the pause before the choices."
-msgstr "电话簿的快速拨号照常可用，现在选项出现前也没有停顿了。"
+msgid "The phone book's quick dial still works, and it also loses the pause before the choices."
+msgstr "电话簿的快捷拨号照常可用，选项出现前的停顿也去掉了。"

@@ -2,7 +2,7 @@
 
 ![Quick Call](preview.png)
 
-A mod for *Probably Stolen*. Calls to Wild and your other contacts go straight to the choices: no wait after the last digit, no ringing, no pickup pause and no greeting lines. Intro and story calls still play in full.
+A mod for *Probably Stolen*. Calls to Wild and your other contacts open on their choices. The mod removes the wait after the last digit, the ringing, the pickup pause and the greeting lines. Intro and story calls still play in full.
 
 **Documentation:** <https://kcn-judu.github.io/ProbablyStolen-Mods/en/quick-call/> ([简体中文](https://kcn-judu.github.io/ProbablyStolen-Mods/zh-cn/quick-call/))
 
@@ -26,6 +26,8 @@ See [Building](doc/manual/building.md) for the requirements and the `GAME` and `
 | Path | Contents |
 | --- | --- |
 | `src/` | The mod's source |
+| `tests/` | The test of the dialing rule, run outside the game |
+| `build.sh` | Builds the mod into `out/quick_call` |
 | `doc/manual/` | Documentation, in English (the source of every translation) |
 | `doc/locale/` | Translations of the documentation, as gettext catalogs |
 | `manifest.xml`, `preview.png` | What the game reads, next to the DLL |

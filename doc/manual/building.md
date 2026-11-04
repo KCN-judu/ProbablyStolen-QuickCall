@@ -5,7 +5,7 @@
 
 - *Probably Stolen*, game version 0.46D. The build compiles against the game's own assemblies in `Probably Stolen_Data/Managed`.
 - Git Bash or another POSIX shell on Windows.
-- Nothing else: the C# 5 compiler that ships with Windows (.NET Framework 4) is enough.
+- No other tools: the C# 5 compiler that ships with Windows (.NET Framework 4) builds the mod.
 
 ## Build
 

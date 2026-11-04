@@ -1,11 +1,17 @@
 [h1]Quick Call[/h1]
-Calling Wild or your suppliers? Skip the wait and get straight to business.
+Calls to Wild and your suppliers open on their choices.
+
+[h2]What's new in 1.0.1[/h2]
+[list]
+[*]If the game no longer has a method the mod hooks (after a game update, for example), the mod takes down what it had set up, writes one line to Player.log and stays off. Before, it could run half enabled.
+[*]The rule for dialing at once is covered by a test that runs outside the game. Nothing changes in play.
+[/list]
 
 [h2]What it removes[/h2]
 [list]
-[*]The 2.25 s wait after the last digit: a contact's number dials as soon as you finish typing it.
+[*]The 2.25 s wait after the last digit: a contact's number dials as soon as it is complete and no other contact's number starts with the same digits.
 [*]The 1-5 s of ringing and the pickup pause.
-[*]The greeting lines: every call opens on the line with the choices, using the game's own quick-dial dialog.
+[*]The greeting lines: every call opens on the line with the choices, as in the game's own quick dial.
 [*]The pause before the choices appear.
 [/list]
 
@@ -28,13 +34,19 @@ Bug reports and suggestions are welcome on GitHub or in the comments.
 [hr][/hr]
 
 [h1]快速通话[/h1]
-给 Wild 或供货商打电话？跳过等待，直接谈正事。
+给王尔德和供货商打电话时，一接通就是对话选项。
+
+[h2]1.0.1 更新内容[/h2]
+[list]
+[*]游戏更新后，如果模组挂接的某个方法不存在，模组会撤下已经装好的部分，在 Player.log 里写一行说明，然后保持关闭，不再只启用一半。
+[*]立即拨号的规则现在有一个在游戏外运行的测试。游玩时没有变化。
+[/list]
 
 [h2]去掉了什么[/h2]
 [list]
-[*]输完最后一位数字后的 2.25 秒等待：联系人号码一输完就立即拨出。
+[*]输完最后一位数字后的 2.25 秒等待：号码输完整、且没有别的联系人号码以这几位开头时，立即拨出。
 [*]1 到 5 秒的响铃和接通前的停顿。
-[*]寒暄台词：每次通话都直接从带选项的那句开始，用的是游戏自带的快速拨号对话。
+[*]开场白：每次通话都从带选项的那句开始，和游戏自带的快捷拨号一样。
 [*]选项出现前的停顿。
 [/list]
 

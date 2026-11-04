@@ -1,4 +1,7 @@
 // Checks when typed digits are dialled at once (src/Dial.Pure.cs), outside the game.
+// Only Dial.Pure.cs is compiled with it; the rest of the mod needs the game's assemblies. Each case prints
+// ok or FAIL, and the exit code is 1 when any case fails. The contact list is made up: 4471 starts the
+// longer number 447123.
 //   csc -out:DialTest.exe tests\DialTest.cs src\Dial.Pure.cs && DialTest.exe
 using System;
 using QuickCall;

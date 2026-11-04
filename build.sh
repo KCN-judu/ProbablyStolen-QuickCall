@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Builds out/quick_call (QuickCall.dll, manifest.xml, preview.png) from src/*.cs. The tests are separate:
+# see tests/DialTest.cs. --install also copies the folder into the game's Mods folder.
 # Builds the mod with the C# 5 compiler that ships with Windows, against the game's own Mono assemblies.
 #   GAME=/d/SteamLibrary/steamapps/common/"Probably Stolen" CSC=/path/to/csc.exe ./build.sh [--install]
 set -euo pipefail
